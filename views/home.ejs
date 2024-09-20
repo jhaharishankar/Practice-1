@@ -1,0 +1,106 @@
+<%- include('./header.ejs') %>
+
+
+    <!-- slider div start -->
+    <div class="carousel slide" data-bs-ride="carousel" id="s">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#s" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#s" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#s" data-bs-slide-to="2"></button>
+        </div><!--carousel-indicators end-->
+
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+                <img src="Image/slider1.jpg" alt="slider image" class="w-100">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="Image/slider2.jpg" alt="slider image" class="w-100">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="Image/slider 3.jpg" alt="slider image" class="w-100">
+            </div>
+        </div><!--carousel-inner end-->
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#s" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#s" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div><!-- slider div end -->
+
+    <div class="container home">
+        <div class="row">
+            <h2 class="text-center mt-4 ">Welcome User</h2>
+            <p class="text-center mb-4">MAHARANA PRATAP COLLEGE OF TECHNOLOGY</p>
+            <div class="col-md-4 mt-3">
+                <div class="card home_card">
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque soluta iusto sapiente
+                            consectetur ipsa accusantium laboriosam! Adipisci, at fugit laboriosam, repudiandae, hic
+                            assumenda saepe enim doloremque aliquam eius ad sunt.</p>
+                    </div>
+                </div>
+            </div> <!--col-md-4 end-->
+            <div class="col-md-4 mt-3">
+                <div class="card home_card">
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque soluta iusto sapiente
+                            consectetur ipsa accusantium laboriosam! Adipisci, at fugit laboriosam, repudiandae, hic
+                            assumenda saepe enim doloremque aliquam eius ad sunt.</p>
+                    </div>
+                </div>
+            </div> <!--col-md-4 end-->
+            <div class="col-md-4 mt-3">
+                <div class="card home_card">
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque soluta iusto sapiente
+                            consectetur ipsa accusantium laboriosam! Adipisci, at fugit laboriosam, repudiandae, hic
+                            assumenda saepe enim doloremque aliquam eius ad sunt.</p>
+                    </div>
+                </div>
+            </div> <!--col-md-4 end-->
+            <!-- <div class="row text-center card2"> -->
+            <div class="col-md-4 mt-3 text-center">
+                <div class="card  home_card2">
+                    <img src="Image/card-image1.jpg" alt="card-image">
+                    <div class="card-body">
+                        <h3 class="text-center ">B.Tech</h3>
+                        <p>B.Tech is a professional undergraduate engineering degree</p>
+                        <div class="text-center">
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div><!--col-md-4 end-->
+            <div class="col-md-4 mt-3  text-center">
+                <div class="card home_card2 ">
+                    <img src="Image/card-image2.jpg" alt="card-image" class="img2">
+                    <div class="card-body">
+                        <h3 class="text-center ">BCA</h3>
+                        <p>BCA is a three year bechelor's degree in computer application</p>
+                        <div class="text-center">
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div><!--col-md-4 end-->
+            <div class="col-md-4 mt-3 text-center">
+                <div class="card home_card2">
+                    <img src="Image/card-image3.webp" alt="card-image">
+                    <div class="card-body">
+                        <h3 class="text-center ">MCA</h3>
+                        <p>BCA is a post graduation degree in computer application</p>
+                        <div class="text-center">
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div><!--col-md-4 end-->
+            <!-- </div>row end -->
+        </div><!--row end-->
+    </div><!--container end-->
+
+    <%- include('./footer.ejs') %>
+    
