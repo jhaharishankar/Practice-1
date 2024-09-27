@@ -10,6 +10,10 @@ route.get('/',FrontController.login)
 route.get('/register',FrontController.register)
 route.get('/contact',FrontController.contact)
 
+// insert data
+route.post('/insertStudent',FrontController.studentInsert)
+
+
 // AdminController
 route.get('/admin/dashboard',AdminController.dashboard)
 route.get('/admin/studentDisplay',AdminController.studentDisplay)

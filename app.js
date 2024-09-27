@@ -13,6 +13,9 @@ connectDb()
 // css image link
 app.use(express.static('public'))
 
+// parse application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: false }))
+
 
 // localhost:4000 router load
 app.use('/',web)

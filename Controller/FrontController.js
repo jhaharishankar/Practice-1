@@ -37,5 +37,14 @@ class FrontController{
             console.log(error )
         }
     }
+
+    // insert student
+    static studentInsert = async(req,res)=>{
+        try {
+            console.log(req.body)  // input (name='name)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 module.exports = FrontController
