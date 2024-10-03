@@ -17,6 +17,8 @@ route.post('/insertStudent',FrontController.studentInsert)
 // AdminController
 route.get('/admin/dashboard',AdminController.dashboard)
 route.get('/admin/studentDisplay',AdminController.studentDisplay)
+route.get('/admin/studentView/:id',AdminController.studentView)
+route.get('/admin/studentDelete/:id',AdminController.studentDelete)
 
 
 module.exports = route

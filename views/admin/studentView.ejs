@@ -13,7 +13,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">dashboard</li>
+                <li class="breadcrumb-item active">View</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -26,12 +26,8 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">DataTable with default features</h3>
-              &nbsp;
-              &nbsp;
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-default">
-                Add Student
-              </button>
+              <h3 class="card-title">View Data</h3>
+              
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -42,25 +38,19 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Password</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                <%  d.forEach((item)=>{ %>
-                  
+                                  
                   <tr>
-                    <td><%= item._id %></td>
-                    <td><%= item.name %></td>
-                    <td><%= item.email %></td>
-                    <td><%= item.password %></td>
-                    <td>
-                      <a href="/admin/studentView/<%= item._id %>" class="btn btn-info">View</a>
-                      <a href="" class="btn btn-success">Edit</a>
-                      <a href="/admin/studentDelete/<%= item._id %>" class="btn btn-danger">Delete</a>
-                    </td>
+                    <td><%= d._id %></td>
+                    <td><%= d.name %></td>
+                    <td><%= d.email %></td>
+                    <td><%= d.password %></td>
+                    
                   </tr>
 
-                <%}) %>
+                
                 </tbody>
                 <tfoot>
                   <tr>
