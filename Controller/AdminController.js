@@ -64,5 +64,19 @@ class AdminController {
             console.log(error)
         }
     }
+    static studentInsert = async (req, res) => {
+        try {
+            // console.log(req.params.id)
+           const {name,email,password} = req.body
+           await UserModel.create({
+            name,
+            email,
+            password
+           })
+           res.redirect("/admin/studentDisplay")
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 module.exports = AdminController

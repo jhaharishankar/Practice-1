@@ -26,10 +26,7 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">DataTable with default features</h3>
-              &nbsp;
-              &nbsp;
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-default">
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addStudent">
                 Add Student
               </button>
             </div>
@@ -46,21 +43,29 @@
                   </tr>
                 </thead>
                 <tbody>
-                <%  d.forEach((item)=>{ %>
-                  
-                  <tr>
-                    <td><%= item._id %></td>
-                    <td><%= item.name %></td>
-                    <td><%= item.email %></td>
-                    <td><%= item.password %></td>
-                    <td>
-                      <a href="/admin/studentView/<%= item._id %>" class="btn btn-info">View</a>
-                      <a href="/admin/studentEdit/<%= item._id %>" class="btn btn-success">Edit</a>
-                      <a href="/admin/studentDelete/<%= item._id %>" class="btn btn-danger">Delete</a>
-                    </td>
-                  </tr>
+                  <% d.forEach((item)=>{ %>
 
-                <%}) %>
+                    <tr>
+                      <td>
+                        <%= item._id %>
+                      </td>
+                      <td>
+                        <%= item.name %>
+                      </td>
+                      <td>
+                        <%= item.email %>
+                      </td>
+                      <td>
+                        <%= item.password %>
+                      </td>
+                      <td>
+                        <a href="/admin/studentView/<%= item._id %>" class="btn btn-info">View</a>
+                        <a href="/admin/studentEdit/<%= item._id %>" class="btn btn-success">Edit</a>
+                        <a href="/admin/studentDelete/<%= item._id %>" class="btn btn-danger">Delete</a>
+                      </td>
+                    </tr>
+
+                    <%}) %>
                 </tbody>
                 <tfoot>
                   <tr>
@@ -81,6 +86,40 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+    <!-- Model start -->
+    <div class="modal fade" id="addStudent">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Student</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/admin/insertStudent" method="post">
+              <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" name="name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" name="email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
 
     <%- include('./footer.ejs') %>
