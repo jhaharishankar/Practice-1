@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,27 +34,48 @@
                     </div><!--col-md-6 end div end-->
                     <div class="col-md-6 mt-4 reg_txt">
                         <h4 class="text-center">Register</h4>
-                        <form action="/insertStudent" method="post">
-                            <div class="mb-4">
-                                <label for="Username" class="mb-2">Username:</label>
-                                <input name="name" type="name" class="form-control" placeholder="Username" id="Username">
+
+                        <% if(message.length> 0){ %>
+                            <div class="alert alert-danger">
+                                <!-- To Print -->
+                                <%= message %>
                             </div>
-                            <div class="mb-4">
-                                <label for="Email" class="mb-2">Your Email:</label>
-                                <input name="email" type="email" class="form-control" placeholder="Email" id="Email">
-                            </div>
-                            <div class="mb-4">
-                                <label for="Password" class="mb-2">Your Password:</label>
-                                <input name="password" type="password" class="form-control" placeholder="Password" id="Password">
-                            </div>
-                            <div class="mb-4">
-                                <label for="Con_Password" class="mb-2">Confirm Password:</label>
-                                <input name="Con_Password" type="password" class="form-control" placeholder="Password" id="Con_Password">
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary mb-4">Login</button>
-                            </div>
-                        </form>
+                            <% } %>
+
+                                <form action="/insertStudent" method="post" enctype="multipart/form-data">
+                                    <div class="mb-4">
+                                        <label for="Username" class="mb-2">Username:</label>
+                                        <!-- <input name="name" type="name" class="form-control" placeholder="Username" id="Username"> -->
+                                        <input name="name" class="form-control text-capitalize" type="text" placeholder="Enter your name" id="Username">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="Email" class="mb-2">Your Email:</label>
+                                        <!-- <input name="email" type="email" class="form-control" placeholder="Email" id="Email"> -->
+                                        <input name="email" class="form-control" type="email" placeholder="name@example.com" id="Email">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="Password" class="mb-2">Your Password:</label>
+                                        <!-- <input name="password" type="password" class="form-control" placeholder="Password" id="Password"> -->
+                                        <input name="password" class="form-control" type="password"
+                                            placeholder="Password" id="Password">
+
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="Con_Password" class="mb-2">Confirm Password:</label>
+                                        <!-- <input name="Con_Password" type="password" class="form-control" placeholder="Password" id="Con_Password"> -->
+                                        <input name="confirmpassword" class="form-control" type="password"
+                                            placeholder="Password" id="Con_Password">
+                                    </div>
+
+                                    <!-- Image -->
+                                    <div class="mb-4">
+                                        <label for="image" class="mb-2">Image</label>
+                                        <input name="image" class="form-control" type="file" id="image">
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary mb-4">Login</button>
+                                    </div>
+                                </form>
                     </div><!--col-md-6 end div end-->
                 </div><!--row div end-->
             </div><!--container div end-->

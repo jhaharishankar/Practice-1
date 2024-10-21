@@ -3,6 +3,12 @@ const app = express()
 const port = 4000
 const web = require('./routing/web')
 const connectDb = require('./db/connectDb')
+const fileUpload = require('express-fileupload')
+// image upload
+app.use(fileUpload({
+  useTempFiles : true,
+  tempFileDir : '/tmp/'
+}));
 
 // ejs a.ejs
 app.set('view engine', 'ejs')
@@ -16,6 +22,18 @@ app.use(express.static('public'))
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }))
 
+//connect flash and sessions
+const session = require('express-session')
+const flash = require('connect-flash');
+//messages
+app.use(session({
+    secret: 'secret',
+    cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false,
+  }));
+//Flash messages
+app.use(flash());
 
 // localhost:4000 router load
 app.use('/',web)

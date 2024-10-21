@@ -39,6 +39,14 @@
                     </div><!--col-md-6 end div end-->
                     <div class="col-md-6 mt-4 lgn_txt">
                         <h4 class="text-center ">Login</h4>
+                        
+                            <% if(message.length > 0){ %>
+                                <div class="alert alert-success">
+                                    <!-- To print -->
+                                    <%= message %>
+                                </div>
+                            <% } %>
+
                         <form action="">
                             <div class="mb-4">
                                 <label for="Email" class="mb-2">Your Email:</label>

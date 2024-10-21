@@ -17,6 +17,16 @@ const UserSchema = mongoose.Schema({
         type:String,
         default:'student'
     }, 
-})
+    image:{
+        public_id: {
+            type: String,
+            required: true
+        },
+        url: {
+            type: String,
+            required: true
+        }
+    },
+},{timestamps:true}) // to show time when we insert image
 const UserModel = mongoose.model('user',UserSchema)
 module.exports =UserModel
