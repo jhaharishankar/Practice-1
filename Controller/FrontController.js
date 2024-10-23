@@ -25,7 +25,7 @@ class FrontController {
     }
     static login = async (req, res) => {
         try {
-            res.render("login", { message: req.flash("Success") });
+            res.render("login", { message: req.flash("Success"), msg: req.flash("error") });
         } catch (error) {
             console.log(error)
         }
@@ -80,7 +80,7 @@ class FrontController {
             const data = await UserModel.create({
                 name,
                 email,
-                password,
+                password:hashpassword,
                 image:{
                     public_id:imageUpload.public_id,
                     url: imageUpload.secure_url
@@ -90,6 +90,24 @@ class FrontController {
             res.redirect("/") /// route ** web
         } catch (error) {
             console.log(error)
+        }
+    }
+
+    static verifyLogin = async (req, res) => {
+        try {
+            // console.log(req.body)
+            const { email, password } = req.body;
+            const user = await UserModel.findOne({ email: email})
+            if (user != null){
+                const isMatch = await bcrypt.compare(password, user.password)
+                console.log(isMatch)
+            }
+            else{
+                req.flash('error', 'You are not a registered user. Please register!')
+                return res.redirect('/')
+            }
+        } catch (error) { 
+            console.log(error);
         }
     }
 }

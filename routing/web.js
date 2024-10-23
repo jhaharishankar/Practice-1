@@ -12,6 +12,9 @@ route.get('/contact',FrontController.contact)
 
 // insert data
 route.post('/insertStudent',FrontController.studentInsert)
+// verifyLogin
+route.post('/verifyLogin',FrontController.verifyLogin)
+
 
 
 // AdminController
@@ -23,6 +26,7 @@ route.get('/admin/studentEdit/:id',AdminController.studentEdit)
 
 route.post('/admin/studentUpdate/:id',AdminController.studentUpdate)
 route.post('/admin/insertStudent',AdminController.studentInsert)
+
 
 
 module.exports = route

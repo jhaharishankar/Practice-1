@@ -47,17 +47,24 @@
                                 </div>
                             <% } %>
 
-                        <form action="">
+                            <% if(msg.length > 0){ %>
+                                <div class="alert alert-danger">
+                                    <!-- To print -->
+                                    <%= msg %>
+                                </div>
+                            <% } %>
+
+                        <form action="/verifyLogin" method="post">
                             <div class="mb-4">
                                 <label for="Email" class="mb-2">Your Email:</label>
-                                <input type="email" class="form-control" placeholder="Email" id="Email">
+                                <input type="email" class="form-control" placeholder="Email" id="Email" name="email">
                             </div>
                             <div class="mb-4">
                                 <label for="Password" class="mb-2">Your Password:</label>
-                                <input type="password" class="form-control" placeholder="Password" id="Password">
+                                <input type="password" class="form-control" placeholder="Password" id="Password" name="password">
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-primary mb-4">Login</button>
+                                <button type="submit" class="btn btn-primary mb-4">Login</button>
                             </div>
                         </form>
                         <div class="create mb-2">
