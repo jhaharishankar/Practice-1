@@ -2,18 +2,20 @@ const express = require('express')
 const FrontController = require("../Controller/FrontController")
 const AdminController = require('../Controller/AdminController')
 const route = express.Router()
+const checkAuth = require('../middleware/auth')
 
 // routing
-route.get('/home',FrontController.home) //path
-route.get('/about',FrontController.about)
+route.get('/home', checkAuth, FrontController.home) //path
+route.get('/about', checkAuth, FrontController.about)
 route.get('/',FrontController.login)
 route.get('/register',FrontController.register)
-route.get('/contact',FrontController.contact)
+route.get('/contact', checkAuth, FrontController.contact)
 
 // insert data
 route.post('/insertStudent',FrontController.studentInsert)
 // verifyLogin
 route.post('/verifyLogin',FrontController.verifyLogin)
+route.get('/logout',FrontController.logout)
 
 
 

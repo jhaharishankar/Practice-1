@@ -1,6 +1,9 @@
 const UserModel = require('../models/user')
 const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
+const jwt = require('jsonwebtoken');
+
+// cloudinary configration
 cloudinary.config({
     cloud_name:"dqioctehh",
     api_key:"358269223623469",
@@ -99,8 +102,18 @@ class FrontController {
             const { email, password } = req.body;
             const user = await UserModel.findOne({ email: email})
             if (user != null){
-                const isMatch = await bcrypt.compare(password, user.password)
-                console.log(isMatch)
+                const isMatched = await bcrypt.compare(password, user.password)
+                // console.log(isMatched)
+                if (isMatched) {
+                    // token generate
+                    var token = jwt.sign({ ID: user._id }, 'abdbasdbhjb');
+                    // console.log(token)
+                    res.cookie('token',token)
+                    res.redirect('/home')
+                } else {
+                    req.flash('error', 'Email or password is not valid')
+                    return res.redirect('/')
+                }
             }
             else{
                 req.flash('error', 'You are not a registered user. Please register!')
@@ -108,6 +121,14 @@ class FrontController {
             }
         } catch (error) { 
             console.log(error);
+        }
+    }
+
+    static logout = async (req, res) => {
+        try {
+            res.redirect('/')
+        } catch(error) {
+            console.log(error)
         }
     }
 }

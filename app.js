@@ -3,7 +3,11 @@ const app = express()
 const port = 4000
 const web = require('./routing/web')
 const connectDb = require('./db/connectDb')
+// image upload 
 const fileUpload = require('express-fileupload')
+
+var cookieParser = require('cookie-parser')
+app.use(cookieParser())
 // image upload
 app.use(fileUpload({
   useTempFiles : true,

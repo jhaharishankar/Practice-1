@@ -51,12 +51,20 @@
                 <label for="username" class="user">Username</label>
                 <img src="Image/profile.png" alt="" class="pp">
                 <select name="username" id="username">
-                    <option value="newproject">New Project</option>
-                    <option value="setting">Setting</option>
+                    <!-- <option value="newproject">New Project</option>
+                    <option value="setting">Setting</option> -->
                     <option value="profile">Profile</option>
-                    <option value="logout">Log Out</option>
+                    <!-- will have to make this logout -->
+                        <option value="/logout"> 
+                           <a href="/logout">
+                            
+                           Log Out </a></option>
+                    
                 </select>
-                <button type="button" class="btn btn-primary">Log out</button>
+                <a href="/logout">
+
+                    <button type="button" class="btn btn-primary">Log out</button>
+                </a>
             </div>
         </div><!--container fluid end-->
     </nav><!--nav close-->
