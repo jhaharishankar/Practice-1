@@ -31,5 +31,9 @@ route.post('/admin/insertStudent', AdminController.studentInsert)
 
 // CourseController
 route.post('/course_insert', checkAuth, CourseController.courseinsert)
+route.get('/coursedisplay', checkAuth, CourseController.coursedisplay)
+route.get("/courseView/:id",checkAuth,CourseController.courseView)
+route.get("/courseEdit/:id",checkAuth,CourseController.courseEdit)
+
 
 module.exports = route
