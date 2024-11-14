@@ -69,8 +69,12 @@
                         <h3 class="text-center ">B.Tech</h3>
                         <p>B.Tech is a professional undergraduate engineering degree</p>
                         <div class="text-center">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#btech">Register</button>
+                            <% if(btech){ %>
+                                <a href="/coursedisplay" class="btn btn-info">Course Display</a>
+                                <% }else{ %>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#btech">Register</button>
+                                    <% } %>
                         </div>
                     </div>
                 </div>
@@ -82,8 +86,12 @@
                         <h3 class="text-center ">BCA</h3>
                         <p>BCA is a three year bechelor's degree in computer application</p>
                         <div class="text-center">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#bca">Register</button>
+                            <% if(bca){ %>
+                                <a href="/coursedisplay" class="btn btn-info">Course Display</a>
+                                <% }else{ %>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#bca">Register</button>
+                                    <% } %>
                         </div>
                     </div>
                 </div>
@@ -95,8 +103,12 @@
                         <h3 class="text-center ">MCA</h3>
                         <p>BCA is a post graduation degree in computer application</p>
                         <div class="text-center">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#mca">Register</button>
+                            <% if(mca){ %>
+                                <a href="/coursedisplay" class="btn btn-info">Course Display</a>
+                                <% }else{ %>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#mca">Register</button>
+                                    <% } %>
                         </div>
                     </div>
                 </div>
@@ -151,7 +163,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="">Course</label>
-                            <input type="text" value="B.Tech" readonly class="form-control" name="course">
+                            <input type="text" value="btech" readonly class="form-control" name="course">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
 
@@ -209,7 +221,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="">Course</label>
-                            <input type="text" value="BCA" readonly class="form-control" name="course">
+                            <input type="text" value="bca" readonly class="form-control" name="course">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
 
@@ -267,7 +279,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="">Course</label>
-                            <input type="text" value="MCA" readonly class="form-control" name="course">
+                            <input type="text" value="mca" readonly class="form-control" name="course">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
 

@@ -1,7 +1,14 @@
 <%-include('../header.ejs') %>
-<h1 class="text-center bg-info mt-5">Display Course</h1>
-<div class="container mt-5">
-        
+    <h1 class="text-center bg-info mt-5">Display Course</h1>
+    <div class="container mt-5">
+        <% if(message.length>0){ %>
+            <div class="alert alert-success">
+                <!-- to print message -->
+                <%= message %> 
+            </div>
+
+            <%} %>
+
                 <table class="table table-bordered text-center">
                     <tr>
                         <th colspan="7">Course Display</th>

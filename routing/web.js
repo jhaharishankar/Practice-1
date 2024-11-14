@@ -34,6 +34,8 @@ route.post('/course_insert', checkAuth, CourseController.courseinsert)
 route.get('/coursedisplay', checkAuth, CourseController.coursedisplay)
 route.get("/courseView/:id",checkAuth,CourseController.courseView)
 route.get("/courseEdit/:id",checkAuth,CourseController.courseEdit)
+route.post("/courseUpdate/:id",checkAuth,CourseController.courseUpdate)
+route.get("/courseDelete/:id",checkAuth,CourseController.courseDelete)
 
 
 module.exports = route

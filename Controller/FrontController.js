@@ -1,3 +1,4 @@
+const CourseModel = require('../models/course')
 const UserModel = require('../models/user')
 const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
@@ -5,25 +6,28 @@ const jwt = require('jsonwebtoken');
 
 // cloudinary configration
 cloudinary.config({
-    cloud_name:"dqioctehh",
-    api_key:"358269223623469",
-    api_secret:"hamPoLZxC70MqYSjzwlJiQxo6Lk",
+    cloud_name: "dqioctehh",
+    api_key: "358269223623469",
+    api_secret: "hamPoLZxC70MqYSjzwlJiQxo6Lk",
 });
 
 class FrontController {
 
     static home = async (req, res) => {
         try {
-            const {name, image, email} = req.userdata
-            res.render("home",{n:name, i:image, e:email})
+            const { name, image, email, id } = req.userdata
+            const btech = await CourseModel.findOne({ user_id: id, course: "btech" });
+            const bca = await CourseModel.findOne({ user_id: id, course: "bca" });
+            const mca = await CourseModel.findOne({ user_id: id, course: "mca" });
+            res.render("home", { n: name, i: image, e: email, btech:btech, bca:bca, mca:mca})
         } catch (error) {
             console.log(error)
         }
     }
     static about = async (req, res) => {
         try {
-            const {name, image} = req.userdata
-            res.render("about",{n:name, i:image})
+            const { name, image } = req.userdata
+            res.render("about", { n: name, i: image })
         } catch (error) {
             console.log(error)
         }
@@ -44,8 +48,8 @@ class FrontController {
     }
     static contact = async (req, res) => {
         try {
-            const {name, image} = req.userdata
-            res.render("contact",{n:name, i:image})
+            const { name, image } = req.userdata
+            res.render("contact", { n: name, i: image })
         } catch (error) {
             console.log(error)
         }
@@ -74,7 +78,7 @@ class FrontController {
             }
 
             // console.log(req.files) // to check image
-            const file =req.files.image
+            const file = req.files.image
             const imageUpload = await cloudinary.uploader.upload(
                 file.tempFilePath,
                 {
@@ -82,13 +86,13 @@ class FrontController {
                 }
             );
             // console.log(imageUpload);
-            const hashpassword =await bcrypt.hash(password,10)
+            const hashpassword = await bcrypt.hash(password, 10)
             const data = await UserModel.create({
                 name,
                 email,
-                password:hashpassword,
-                image:{
-                    public_id:imageUpload.public_id,
+                password: hashpassword,
+                image: {
+                    public_id: imageUpload.public_id,
                     url: imageUpload.secure_url
                 }
             });
@@ -103,26 +107,26 @@ class FrontController {
         try {
             // console.log(req.body)
             const { email, password } = req.body;
-            const user = await UserModel.findOne({ email: email})
-            if (user != null){
+            const user = await UserModel.findOne({ email: email })
+            if (user != null) {
                 const isMatched = await bcrypt.compare(password, user.password)
                 // console.log(isMatched)
                 if (isMatched) {
                     // token generate
                     var token = jwt.sign({ ID: user._id }, 'abdbasdbhjb');
                     // console.log(token)
-                    res.cookie('token',token)
+                    res.cookie('token', token)
                     res.redirect('/home')
                 } else {
                     req.flash('error', 'Email or password is not valid')
                     return res.redirect('/')
                 }
             }
-            else{
+            else {
                 req.flash('error', 'You are not a registered user. Please register!')
                 return res.redirect('/')
             }
-        } catch (error) { 
+        } catch (error) {
             console.log(error);
         }
     }
@@ -131,7 +135,7 @@ class FrontController {
         try {
             res.clearCookie("token");
             res.redirect('/')
-        } catch(error) {
+        } catch (error) {
             console.log(error)
         }
     }
