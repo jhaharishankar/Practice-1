@@ -48,29 +48,42 @@
                     <li><a href="/contact">Contact</a>
                     <li><a href="/about">About</a>
                 </ul>
+                <a href="/profile">
                 <label for="username" class="user">
-                    <%= n %>
-                </label>
+                        <%= n %>
+                    </label>
+                </a>
                 &nbsp;
                 &nbsp;
                 <a href="#" class="nav-link d-block link-body-emphasis text-decoration-none  text-white"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="<%= i.url%>" alt="mdo" width="40" height="40" class="rounded-circle">
+                    <a href="/profile">
+                        <img src="<%= i.url%>" alt="mdo" width="40" height="40" class="rounded-circle">
+                    </a>
                 </a>
                 &nbsp;
                 &nbsp;
-                <select name="username" id="username">
-                    <!-- <option value="newproject">New Project</option>
+                <!-- <ul class="dropdown-menu text-small">
+
+                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </ul> -->
+                <!-- <select name="username" id="username"> -->
+                <!-- <option value="newproject">New Project</option>
                     <option value="setting">Setting</option> -->
-                    <option value="profile">Profile</option>
-                    <!-- will have to make this logout -->
-                    <option value="/logout">
+                <!-- <option value="profile">Profile</option> -->
+                <!-- will have to make this logout -->
+                <!-- <option value="/logout">
                         <a href="/logout">
 
                             Log Out </a>
-                    </option>
+                    </option> -->
 
-                </select>
+                <!-- </select> -->
+
                 <a href="/logout">
 
                     <button type="button" class="btn btn-primary">Log out</button>

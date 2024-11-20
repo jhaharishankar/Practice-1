@@ -5,7 +5,7 @@ const route = express.Router()
 const checkAuth = require('../middleware/auth')
 const CourseController = require('../Controller/CourseController')
 
-// routing
+// Frontcontroller routing
 route.get('/home', checkAuth, FrontController.home) //path
 route.get('/about', checkAuth, FrontController.about)
 route.get('/', FrontController.login)
@@ -17,6 +17,10 @@ route.post('/insertStudent', FrontController.studentInsert)
 // verifyLogin
 route.post('/verifyLogin', FrontController.verifyLogin)
 route.get('/logout', FrontController.logout)
+// profile
+route.get('/profile', checkAuth, FrontController.profile)
+route.post('/changePassword',checkAuth,FrontController.changePassword)
+route.post('/updateProfile',checkAuth,FrontController.updateProfile)
 
 
 
