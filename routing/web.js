@@ -25,13 +25,15 @@ route.post('/updateProfile',checkAuth,FrontController.updateProfile)
 
 
 // AdminController
-route.get('/admin/dashboard', AdminController.dashboard)
-route.get('/admin/studentDisplay', AdminController.studentDisplay)
-route.get('/admin/studentView/:id', AdminController.studentView)
-route.get('/admin/studentDelete/:id', AdminController.studentDelete)
-route.get('/admin/studentEdit/:id', AdminController.studentEdit)
-route.post('/admin/studentUpdate/:id', AdminController.studentUpdate)
-route.post('/admin/insertStudent', AdminController.studentInsert)
+route.get('/admin/dashboard',checkAuth, AdminController.dashboard)
+route.get('/admin/studentDisplay',checkAuth, AdminController.studentDisplay)
+route.get('/admin/studentView/:id',checkAuth, AdminController.studentView)
+route.get('/admin/studentDelete/:id',checkAuth, AdminController.studentDelete)
+route.get('/admin/studentEdit/:id',checkAuth, AdminController.studentEdit)
+route.post('/admin/studentUpdate/:id',checkAuth, AdminController.studentUpdate)
+route.post('/admin/insertStudent',checkAuth, AdminController.studentInsert)
+route.get('/admin/courseDisplay',checkAuth, AdminController.courseDisplay)
+
 
 // CourseController
 route.post('/course_insert', checkAuth, CourseController.courseinsert)

@@ -96,7 +96,7 @@ class FrontController {
                     url: imageUpload.secure_url
                 }
             });
-            req.flash("Success", "Register Success! Please Login");
+            req.flash("success", "Register Success! Please Login");
             res.redirect("/") /// route ** web
         } catch (error) {
             console.log(error)
@@ -112,11 +112,21 @@ class FrontController {
                 const isMatched = await bcrypt.compare(password, user.password)
                 // console.log(isMatched)
                 if (isMatched) {
+                  if(user.role=='admin'){
+                    // token generate
+                    var token = jwt.sign({ ID: user._id }, 'abdbasdbhjb');
+                    // console.log(token)
+                    res.cookie('token', token)
+                    res.redirect('/admin/dashboard')
+                  }
+                  if(user.role=='student'){
                     // token generate
                     var token = jwt.sign({ ID: user._id }, 'abdbasdbhjb');
                     // console.log(token)
                     res.cookie('token', token)
                     res.redirect('/home')
+                  }
+                    
                 } else {
                     req.flash('error', 'Email or password is not valid')
                     return res.redirect('/')
