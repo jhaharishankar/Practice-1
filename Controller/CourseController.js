@@ -90,6 +90,7 @@ class CourseController{
             console.log(error)
         }
     }
+    
 }
 
 module.exports = CourseController
