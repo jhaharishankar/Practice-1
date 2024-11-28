@@ -48,8 +48,8 @@ class FrontController {
     }
     static contact = async (req, res) => {
         try {
-            const { name, image } = req.userdata
-            res.render("contact", { n: name, i: image })
+            const { name, image, email } = req.userdata
+            res.render("contact", { n: name, i: image, e: email, message: req.flash("success"), msg: req.flash("error") })
         } catch (error) {
             console.log(error)
         }

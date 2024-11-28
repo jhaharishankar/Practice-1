@@ -32,7 +32,10 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Password</th>
+                    <th>Course</th>
+                    <th>Status</th>
+                    <th>Comment</th>
+                    <th>Approve/Reject</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -50,12 +53,25 @@
                         <%= item.email %>
                       </td>
                       <td>
-                        <%= item.password %>
+                        <%= item.course %>
                       </td>
                       <td>
-                        <a href="/admin/studentView/<%= item._id %>" class="btn btn-info">View</a>
-                        <a href="/admin/studentEdit/<%= item._id %>" class="btn btn-success">Edit</a>
-                        <a href="/admin/studentDelete/<%= item._id %>" class="btn btn-danger">Delete</a>
+                        <%= item.status %>
+                      </td>
+                      <td>
+                        <form action="/update_status/<%= item._id %>" method="post">
+                          <textarea name="comment" class="form-control"></textarea>
+                          <input type="hidden" name="name" value="<%= item.name %>">
+                          <input type="hidden" name="email" value="<%= item.email %>">
+                      </td>
+                      <td>
+                        <button type="submit" name="status" class="btn btn-success" value="Approved">Approved</button>
+                        <button type="submit" name="status" class="btn btn-danger" value="Reject">Reject</button>
+                        </form>
+                      <td>
+                        <a href="/courseView/<%= item._id %>" class="btn btn-primary">View</a>
+                        <a href="/courseEdit/<%= item._id %>" class="btn btn-info">Edit</a>
+                        <a href="/courseDelete/<%= item._id %>" class="btn btn-danger">Delete</a>
                       </td>
                     </tr>
 
@@ -66,7 +82,10 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Password</th>
+                    <th>Course</th>
+                    <th>Status</th>
+                    <th>Comment</th>
+                    <th>Approve/Reject</th>
                     <th>Action</th>
                   </tr>
                 </tfoot>

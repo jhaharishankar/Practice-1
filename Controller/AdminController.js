@@ -1,5 +1,6 @@
 const CourseModel = require('../models/course')
 const UserModel = require('../models/user')
+const nodemailer = require('nodemailer')
 
 class AdminController {
     static dashboard = async (req, res) => {
@@ -86,8 +87,22 @@ class AdminController {
     static courseDisplay = async (req, res) => {
         try {
             const { name, image } = req.userdata
-                        const course = await CourseModel.find()
-            res.render('admin/courseDisplay',{c:course,n:name,i:image})
+            const course = await CourseModel.find()
+            res.render('admin/courseDisplay', { c: course, n: name, i: image })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    static update_status = async (req, res) => {
+        try {
+            let id = req.params.id
+            const { name, email, status, comment } = req.body
+            await CourseModel.findByIdAndUpdate(id, {
+                status,
+                comment
+            })
+            res.redirect('/admin/courseDisplay')
+
         } catch (error) {
             console.log(error)
         }
