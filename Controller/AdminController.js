@@ -100,11 +100,12 @@ class AdminController {
     static update_status = async (req, res) => {
         try {
             let id = req.params.id
-            const { name, email, status, comment } = req.body
+            const { name, email, status, comment, course } = req.body
             await CourseModel.findByIdAndUpdate(id, {
                 status,
                 comment
             })
+            this.sendEmail(name, email, course, status, comment)
             res.redirect('/admin/courseDisplay')
 
         } catch (error) {
@@ -114,7 +115,7 @@ class AdminController {
     static profile = async (req, res) => {
         try {
             const { name, image, email, id } = req.userdata
-            res.render('admin/profile', {n: name, i: image, e:email, msg: req.flash('success') })
+            res.render('admin/profile', { n: name, i: image, e: email, msg: req.flash('success') })
 
         } catch (error) {
             console.log(error)
@@ -172,13 +173,13 @@ class AdminController {
     static password = async (req, res) => {
         try {
             const { name, image } = req.userdata
-            res.render('admin/password', {n: name, i: image })
+            res.render('admin/password', { n: name, i: image })
 
         } catch (error) {
             console.log(error)
         }
     }
-     static changePassword = async (req, res) => {
+    static changePassword = async (req, res) => {
         try {
             const { id } = req.userdata;
             //   console.log(req.body)
@@ -210,6 +211,28 @@ class AdminController {
         } catch (error) {
             console.log(error);
         }
+    };
+    static sendEmail = async (name, email, course, status, comment) => {
+        // console.log(name,email,course)
+        // connenct with the smtp server
+
+        let transporter = await nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+
+            auth: {
+                user: "harishankarjha121@gmail.com",
+                pass: "yjiubvyoiabgeaxr"
+            },
+        });
+        let info = await transporter.sendMail({
+            from: "test@gmail.com", // sender address
+            to: email, // list of receivers
+            subject: ` Course ${course} ${status}`, // Subject line
+            text: "heelo", // plain text body
+            html: `<b>${name}</b> Course  <b>${course} ${status}</b> ${comment} <br>
+             `, // html body
+        });
     };
 }
 module.exports = AdminController
