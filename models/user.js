@@ -29,6 +29,10 @@ const UserSchema = mongoose.Schema({
     },
     token: {
         type: String
+    },
+    is_verified:{
+        type:Number,
+        default:0
     }
 }, { timestamps: true }) // to show time when we insert image
 const UserModel = mongoose.model('user', UserSchema)

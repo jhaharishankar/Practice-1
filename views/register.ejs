@@ -42,6 +42,13 @@
                             </div>
                             <% } %>
 
+                            <% if(msg.length> 0){ %>
+                                <div class="alert alert-success">
+                                    <!-- To Print -->
+                                    <%= msg %>
+                                </div>
+                                <% } %>
+
                                 <form action="/insertStudent" method="post" enctype="multipart/form-data">
                                     <div class="mb-4">
                                         <label for="Username" class="mb-2">Username:</label>

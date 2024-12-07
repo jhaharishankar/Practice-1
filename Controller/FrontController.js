@@ -44,7 +44,7 @@ class FrontController {
   }
   static register = async (req, res) => {
     try {
-      res.render("register", { message: req.flash("error") });
+      res.render("register", { message: req.flash("error"), msg:req.flash("success") });
     } catch (error) {
       console.log(error)
     }
@@ -99,12 +99,53 @@ class FrontController {
           url: imageUpload.secure_url
         }
       });
+      if (data) {
+        var token = jwt.sign({ ID: data._id }, 'abdbasdbhjb');
+        // console.log(token)
+        res.cookie('token', token)
+        this.sendVerifymail(name, email, data._id);
+        //To redirect to login page
+        req.flash("success", "Your Registration has been successfully.Please verify your mail. .");
+        res.redirect("/register");
+
+      } else {
+        req.flash("error", "Not Register.");
+        res.redirect("/register");
+      }
       req.flash("success", "Register Success! Please Login");
       res.redirect("/") /// route ** web
     } catch (error) {
       console.log(error)
     }
   }
+
+  static sendVerifymail = async (name, email, user_id) => {
+    //console.log(name, email, user_id);
+    // connenct with the smtp server
+
+    let transporter = await nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+
+        auth: {
+            user: "harishankarjha121@gmail.com",
+            pass: "yjiubvyoiabgeaxr",
+        },
+    });
+    let info = await transporter.sendMail({
+        from: "test@gmail.com", // sender address
+        to: email, // list of receivers
+        subject: "For Verification mail", // Subject line
+        text: "heelo", // plain text body
+        html:
+            "<p>Hii " +
+            name +
+            ',Please click here to <a href="http://localhost:4000/verify?id=' +
+            user_id +
+            '">Verify</a>Your mail</p>.',
+    });
+    //console.log(info);
+};
 
   static verifyLogin = async (req, res) => {
     try {
@@ -285,6 +326,18 @@ class FrontController {
         token +
         '">Reset</a>Your Password.',
     });
+  };
+  static verifyMail = async (req, res) => {
+    try {
+      const updateinfo = await UserModel.findByIdAndUpdate(req.query.id, {
+        is_verified: 1,
+      });
+      if (updateinfo) {
+        res.redirect("/home");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   static reset_Password = async (req, res) => {
     try {
