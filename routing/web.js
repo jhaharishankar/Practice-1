@@ -6,11 +6,12 @@ const checkAuth = require('../middleware/auth')
 const CourseController = require('../Controller/CourseController')
 const ContactContoller = require('../Controller/ContactController')
 const adminrole = require('../middleware/adminrole')
+const isLogin = require('../middleware/islogin')
 
 // Frontcontroller routing
 route.get('/home', checkAuth, FrontController.home) //path
 route.get('/about', checkAuth, FrontController.about)
-route.get('/', FrontController.login)
+route.get('/', isLogin, FrontController.login)
 route.get('/register', FrontController.register)
 route.get('/contact', checkAuth, FrontController.contact)
 
