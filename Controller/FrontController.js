@@ -184,12 +184,12 @@ class FrontController {
           //   res.redirect('/home')
           // }
           if (user.role == "admin" && user.is_verified == 1) {
-            const token = jwt.sign({ ID: user._id }, 'gdaugdasg@1213');
+            const token = jwt.sign({ ID: user._id }, 'abdbasdbhjb');
             // console.log(token)
             res.cookie('token', token)
             res.redirect('/admin/dashboard')
         } else if (user.role == "student" && user.is_verified == 1) {
-            const token = jwt.sign({ ID: user._id }, 'gdaugdasg@1213');
+            const token = jwt.sign({ ID: user._id }, 'abdbasdbhjb');
             // console.log(token)
             res.cookie('token', token)
             res.redirect('/home')
@@ -198,6 +198,7 @@ class FrontController {
             req.flash("error", "Please verify your email.")
             res.redirect('/')
         }
+
         } else {
           req.flash('error', 'Email or password is not valid')
           return res.redirect('/')
@@ -370,7 +371,7 @@ class FrontController {
       console.log(error);
     }
   };
-
+  
   static reset_Password1 = async (req, res) => {
     try {
       const { password, user_id } = req.body;
