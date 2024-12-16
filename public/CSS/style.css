@@ -1,0 +1,304 @@
+* {
+    font-family: prague;
+}
+
+/* login start */
+.bg-clr {
+    background: linear-gradient(-105deg, #c850c0, #4158d0);
+}
+
+.lgn-body {
+    padding-top: 4rem;
+    width: 60%;
+
+}
+
+.lgn_pic {
+    width: 80%;
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.lgn_txt h4 {
+    font-weight: bold;
+    font-size: 24px;
+    /* color: #333; */
+    line-height: 1.2;
+}
+
+.lgn_txt label {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.lgn_txt form {
+    margin-right: 2rem;
+}
+
+.create a {
+    color: #666;
+    text-decoration: none;
+}
+
+.create a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+#loading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff url('https://www.animatedimages.org/data/media/137/animated-clock-image-0174.gif') no-repeat center;
+    z-index: 10000;
+}
+
+/* login end */
+
+/* register start  */
+.reg_body {
+    width: 70%;
+
+}
+
+.reg_pic {
+    width: 60%;
+    margin-left: 4rem;
+    margin-top: 6rem;
+}
+
+.reg_txt h4 {
+    font-weight: bold;
+    font-size: 24px;
+    /* color: #333; */
+    line-height: 1.2;
+}
+
+.reg_txt label {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.reg_txt form {
+    margin-right: 2rem;
+}
+
+/* register end */
+
+/* navbar start */
+.weblogo {
+    width: 65px;
+    border-radius: 50%;
+    margin-left: 40px;
+}
+
+.moblogo {
+    width: 85px;
+}
+
+.moblogo {
+    display: none;
+}
+
+/* .navbar {
+    background: #AFD3E2 !important;
+} */
+
+.navbar-nav li {
+    padding: 0 10px;
+}
+
+.navbar-nav li a {
+    color: #101010 !important;
+    font-size: 20px;
+    font-weight: light;
+    text-decoration: none;
+}
+
+.user {
+    color: #101010 !important;
+    font-size: 20px;
+}
+
+.user:hover {
+    background: #82c4e3;
+}
+
+.navbar button {
+    margin: 0 10px;
+}
+
+.navbar-nav li a:hover {
+    background: #82c4e3;
+}
+
+.pp {
+    width: 3.5%;
+    margin: 0 10px;
+}
+
+/* navbar end */
+
+/* home start */
+.home h2 {
+    letter-spacing: 5px;
+    font-weight: 600;
+    padding-top: 30px;
+}
+
+.home p {
+    /* letter-spacing: 2px; */
+    opacity: 0.8;
+    /* line-height: 40px; */
+    word-spacing: 7px;
+}
+
+.home_card p {
+    color: black;
+    /* line-height: 1.5 !important;
+    letter-spacing: 0 !important; */
+    text-align: center;
+}
+
+.home_card {
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 12px #020001;
+    transition: 0.8s;
+}
+
+.home_card:hover {
+    box-shadow: 1px 1px 12px rgb(190, 156, 105);
+}
+
+.home_card2 {
+    box-shadow: 1px 1px 12px #020001;
+    transition: 0.8s;
+}
+
+.home_card2 img {
+    border-radius: 5px
+}
+
+.home_card2:hover {
+    box-shadow: 1px 1px 12px rgb(1, 178, 254);
+}
+
+/* contact start */
+.cntbg {
+    background-image: url(../../Image/contactbg.webp);
+    height: 80%;
+    box-shadow: 1px 1px 12px #020001;
+}
+
+.contact-card {
+    box-shadow: 1px 1px 12px #020001;
+}
+
+.cntlbl label {
+    color: #19A7CE;
+}
+
+.keep {
+    color: white;
+    font-weight: 400;
+}
+
+/* contact end */
+
+/* About start */
+.aboutbg {
+    background-image: url(../../Image/about.webp);
+    width: 100%;
+    height: 750px;
+    background-position: center;
+    background-size: cover;
+}
+
+.aboutfnt {
+    padding-top: 400px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.6;
+}
+
+.about-para {
+    color: #000;
+    line-height: 35px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    padding-right: 5px;
+    text-align: justify;
+}
+
+.aboutbg2 {
+    background-image: url(../Image/about2.webp);
+    width: 100%;
+    height: 750px;
+    background-position: center;
+    background-size: cover;
+}
+
+.abtcont h1 {
+    margin-top: 300px;
+    line-height: 35px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    padding-right: 5px;
+    color: #1296cf;
+}
+
+.abtcont p {
+    line-height: 40px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    padding-right: 5px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: lighter;
+    padding-bottom: 2cm;
+    color: #020001;
+}
+
+/* About end */
+
+/* footer start */
+.footer-para {
+    line-height: 30px;
+    word-spacing: 1px;
+    font-size: 18px;
+    color: aliceblue;
+}
+
+.icons {
+    opacity: 0.5;
+}
+
+.icons:hover {
+    opacity: 1;
+}
+/* footer end */
+
+
+/* home end */
+/* media query */
+@media(max-width:768px) {
+    .moblogo {
+        display: block;
+    }
+
+    .weblogo {
+        display: none;
+    }
+    .user {
+        color: #101010 !important;
+        font-size: 20px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+}
