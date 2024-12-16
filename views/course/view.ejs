@@ -1,6 +1,5 @@
 <%-include('../header.ejs') %>
-
-<br>
+    <br>
     <h1 class="text-center bg-info">Display View</h1>
     <div class="container mt-5">
         <table class="table table-bordered text-center">
@@ -12,30 +11,13 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Course</th>
-
             </tr>
-
             <tr>
-                <td>
-                    <%= d._id %>
-                </td>
-                <td>
-                    <%= d.name %>
-                </td>
-                <td>
-                    <%= d.email %>
-                </td>
-                <td>
-                    <%= d.course %>
-                </td>
-
+                <td><%= d._id %></td>
+                <td><%= d.name %></td>
+                <td><%= d.email %></td>
+                <td><%= d.course %></td>
             </tr>
-
-
-
         </table>
-
-
     </div>
-
     <%-include('../footer.ejs') %>
