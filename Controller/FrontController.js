@@ -140,7 +140,7 @@ class FrontController {
       html:
         "<p>Hii " +
         name +
-        ',Please click here to <a href="http://localhost:4000/verify?id=' +
+        ',Please click here to <a href="https://practice-1-3tk8.onrender.com/verify?id=' +
         user_id +
         '">Verify</a>Your mail</p>.',
     });
@@ -352,7 +352,7 @@ class FrontController {
       html:
         "<p>Hii " +
         name +
-        ',Please click here to <a href="http://localhost:4000/reset-password?token=' +
+        ',Please click here to <a href="https://practice-1-3tk8.onrender.com/reset-password?token=' +
         token +
         '">Reset</a>Your Password.',
     });
