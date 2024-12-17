@@ -8,7 +8,6 @@ const ContactContoller = require('../Controller/ContactController')
 const adminrole = require('../middleware/adminrole')
 const isLogin = require('../middleware/islogin')
 
-// 09 dec after 30:00 watch video
 
 // Frontcontroller routing
 route.get('/home', checkAuth, FrontController.home) //path
